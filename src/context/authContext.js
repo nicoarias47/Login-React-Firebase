@@ -4,6 +4,9 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 
@@ -28,6 +31,16 @@ export function AuthProvider({ children }) {
 
   const logOut = () => signOut(auth);
 
+  //Login with google
+  const loginWithGoogle = () => {
+    const googleProvider = new GoogleAuthProvider();
+    //Esta funcion nos permite abrir la ventana para seleccionar con que cuenta de
+    //google queremos logearnos
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  const resetPassword = (email) => sendPasswordResetEmail(auth, email);
+
   // Esta funcion captura los cambios de estado de usuario
   // es decir si un usuario esta logeado o no cuando abre la pag
   // o cuando te deslogeas
@@ -40,7 +53,17 @@ export function AuthProvider({ children }) {
   }, []);
 
   return (
-    <authContext.Provider value={{ signUp, login, user, logOut, loading }}>
+    <authContext.Provider
+      value={{
+        signUp,
+        login,
+        user,
+        logOut,
+        loading,
+        loginWithGoogle,
+        resetPassword,
+      }}
+    >
       {children}
     </authContext.Provider>
   );
