@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Login-React-Firebase/static/css/main.651d0dc3.css",
+    "main.js": "/Login-React-Firebase/static/js/main.cacb9e8b.js",
+    "index.html": "/Login-React-Firebase/index.html",
+    "main.651d0dc3.css.map": "/Login-React-Firebase/static/css/main.651d0dc3.css.map",
+    "main.cacb9e8b.js.map": "/Login-React-Firebase/static/js/main.cacb9e8b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.651d0dc3.css",
+    "static/js/main.cacb9e8b.js"
+  ]
+}
